@@ -1,5 +1,3 @@
-
-
 /* Biplab Behera (1711042)
  * Computer Science {CS142}
  * Lab-2 Assignment
@@ -35,43 +33,57 @@ class list
 			tail=NULL;
 		}
 
-
-
-	void createnode(int value)
-	/*
-         * Inserts the value stored at the end of the list.
-         */
-	                {
+        // Member functions of the list class.
+        
+	void createnode(int value);
+	void insert_start(int value);
+	void insert_position(int pos, int value);
+	void delete_first();
+	void delete_last();	
+	void delete_position(int pos);
+	
+	
+};
+	
+void list() :: createnode(int value) {
+	               /*
+                        * Inserts the value stored at the end of the list.
+                        */
+	
 			node *temp=new node;
 			temp->data=value;
 			temp->next=NULL;
 			if(head==NULL)
 			{
-				head=temp;
+				head=temp;    // Steps to perform when the list is empty.
 				tail=temp;
 				temp=NULL;
 			}
 			else
 			{
-				tail->next=temp;
+				tail->next=temp;   // Steps to perform when the list is non-empty.
 				tail=temp;
 			}
 		}
-		/*
-                 * Inserts the value stored at the start of the list.
-                 */
-		void insert_start(int value)
-		{
-			node *temp=new node;
+		
+void list() :: insert_start(int value) {
+	               
+	             /*
+                      * Inserts the value stored at the start of the list.
+                      */
+		       
+	                node *temp=new node;
 			temp->data=value;
 			temp->next=head;
 			head=temp;
 		}
-	        /*
-                 * Inserts the value stored at the any position of the list.
-                 */
-		void insert_position(int pos, int value)
-		{
+	       
+void list() :: insert_position(int pos, int value) {
+	            
+	                /*
+                         * Inserts the value stored at the any position of the list.
+                         */
+	
 			node *pre=new node;
 			node *cur=new node;
 			node *temp=new node;
@@ -85,21 +97,23 @@ class list
 			pre->next=temp;
 			temp->next=cur;
 		}
-	        /*
-                 * Deletes the value stored at the first of the list.
-                 */
-		void delete_first()
-		{
+	        
+void list() :: delete_first() { 
+			
+			/*
+                         * Deletes the value stored at the first of the list.
+                         */
+		
 			node *temp=new node;
 			temp=head;
 			head=head->next;
 			delete temp;
 		}
-	        /*
-                 * Deletes the value stored at the last of the list.
-                 */
-		void delete_last()
-		{
+	      
+void list() :: delete_last() {
+	                /*
+                         * Deletes the value stored at the last of the list.
+                         */
 			node *current=new node;
 			node *previous=new node;
 			current=head;
@@ -112,12 +126,13 @@ class list
 			previous->next=NULL;
 			delete current;
 		}
-	        /*
-                 * Deletes the value stored at the position of the list.
-                 */
-		void delete_position(int pos)
-		{
-			node *current=new node;
+	       
+void list() :: delete_position(int pos) {
+	                /*
+                         * Deletes the value stored at the position of the list.
+                         */
+			
+	                node *current=new node;
 			node *previous=new node;
 			current=head;
 			for(int i=1;i<pos;i++)
@@ -127,11 +142,11 @@ class list
 			}
 			previous->next=current->next;
 		}
-	/*
-                 * Displays the value stored of the list.
-                 */
-	void display()
-		{
+	
+void list() :: display() {
+		      /*
+                       * Displays the value stored of the list.
+                       */
 			node *temp=new node;
 			temp=head;
 			while(temp!=NULL)
@@ -140,48 +155,87 @@ class list
 				temp=temp->next;
 			}
 		}
-};
+
+
 int main()
 {
+	
 	list obj;
+	
+	
 	obj.createnode(1);
 	obj.createnode(2);
 	obj.createnode(3);
 	obj.createnode(4);
+	
+	
+	
 	cout<<"--------------------------------------------------" << endl;
 	cout<<"---------------Displaying All nodes---------------";
 	cout<<"-------------------------------------------------"<< endl;
 	obj.display();
+	
+	
+	
+	
+	
 	cout<<"------------------------------------------------"<< endl;
 	cout<<"-----------------Inserting At End-----------------";
 	cout<<"-------------------------------------------------"<< endl;
 	obj.createnode(5);
 	obj.display();
+	
+	
+	
+	
+	
 	cout<<"-------------------------------------------------" << endl;
 	cout<<"----------------Inserting At Start----------------";
 	cout<<"--------------------------------------------------" << endl;
 	obj.insert_start(0);
 	obj.display();
+	
+	
+	
+	
 	cout<<"-------------------------------------------------" << endl;
 	cout<<"-------------Inserting At Particular Position--------------";
 	cout<<"--------------------------------------------------" << endl;
 	obj.insert_position(5,6);
 	obj.display();
+	
+	
+	
+	
 	cout<<"--------------------------------------------------" << endl;
 	cout<<"----------------Deleting At Start-----------------";
 	cout<<"--------------------------------------------------" << endl;
 	obj.delete_first();
 	obj.display();
+	
+	
+	
+	
 	cout<<"--------------------------------------------------" << endl;
 	cout<<"-----------------Deleing At End-------------------";
 	cout<<"--------------------------------------------------" << endl;
 	obj.delete_last();
 	obj.display();
+	
+	
+	
+	
+	
 	cout<<"--------------------------------------------------" << endl;
 	cout<<"--------------Deleting At Particular Position--------------";
 	cout<<"-------------------------------------------------" << endl;
 	obj.delete_position(4);
 	obj.display();
+	
+	
+	
+	
 	cout<<"--------------------------------------------------" << endl;
+	
 	return 0;
 }
