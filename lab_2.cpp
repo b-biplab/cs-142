@@ -202,7 +202,7 @@ int main()
 	cout<<"-------------Inserting At Particular Position--------------";
 	cout<<"--------------------------------------------------" << endl;
 	obj.insert_position(5,6);
-	obj.display();
+	obj.display(); 
 	
 	
 	
