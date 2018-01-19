@@ -1,11 +1,29 @@
+
+
+/* Biplab Behera (1711042)
+ * Computer Science {CS142}
+ * Lab-2 Assignment
+ */
+
 #include<iostream>
 using namespace std;
+
+/*
+ * Contains a data storage unit and a pointer to the next
+ * element of the linked list.
+ */
+
 class node
 {
         public:
 	int data;
 	node *next;	
 };
+
+/*
+ * Class for Singly Linked List data structure
+ * Pointers to the first and last element of the list
+ */
 class list
 {
 		private:
@@ -16,8 +34,14 @@ class list
 			head=NULL;
 			tail=NULL;
 		}
-		void createnode(int value)
-		{
+	
+	
+	
+	void createnode(int value)	
+	/*
+         * Inserts the value stored at the end of the list.
+         */
+	                {
 			node *temp=new node;
 			temp->data=value;
 			temp->next=NULL;
@@ -33,16 +57,9 @@ class list
 				tail=temp;
 			}
 		}
-		void display()
-		{
-			node *temp=new node;
-			temp=head;
-			while(temp!=NULL)
-			{
-				cout<<temp->data<<"\t";
-				temp=temp->next;
-			}
-		}
+		/*
+                 * Inserts the value stored at the start of the list.
+                 */
 		void insert_start(int value)
 		{
 			node *temp=new node;
@@ -50,6 +67,9 @@ class list
 			temp->next=head;
 			head=temp;
 		}
+	        /*
+                 * Inserts the value stored at the any position of the list.
+                 */
 		void insert_position(int pos, int value)
 		{
 			node *pre=new node;
@@ -65,6 +85,9 @@ class list
 			pre->next=temp;	
 			temp->next=cur;
 		}
+	        /*
+                 * Deletes the value stored at the first of the list.
+                 */
 		void delete_first()
 		{
 			node *temp=new node;
@@ -72,6 +95,9 @@ class list
 			head=head->next;
 			delete temp;
 		}
+	        /*
+                 * Deletes the value stored at the last of the list.
+                 */
 		void delete_last()
 		{
 			node *current=new node;
@@ -86,6 +112,9 @@ class list
 			previous->next=NULL;
 			delete current;
 		}
+	        /*
+                 * Deletes the value stored at the position of the list.
+                 */
 		void delete_position(int pos)
 		{
 			node *current=new node;
@@ -98,13 +127,26 @@ class list
 			}
 			previous->next=current->next;
 		}
+	/*
+                 * Displays the value stored of the list.
+                 */
+	void display()
+		{
+			node *temp=new node;
+			temp=head;
+			while(temp!=NULL)
+			{
+				cout<<temp->data<<"\t";
+				temp=temp->next;
+			}
+		}
 };
 int main()
 {
 	list obj;
-	obj.createnode(25);
-	obj.createnode(50);
-	obj.createnode(90);
+	obj.createnode(10);
+	obj.createnode(20);
+	obj.createnode(30);
 	obj.createnode(40);
 	cout<<"\n--------------------------------------------------\n";
 	cout<<"---------------Displaying All nodes---------------";
